@@ -22,11 +22,14 @@ group :assets do
   gem "compass-rails"
   gem "haml-rails"
   gem "bootstrap-sass"
+
+  gem 'angularjs-rails'
+  gem 'angularjs_scaffold'
 end
 
 group :test do
-  gem "rspec-rails", :group => ["development", "test"]
-  gem "factory_girl_rails", :group => ["development", "test"]
+  gem "rspec-rails"
+  gem "factory_girl_rails"
 end
 
 gem "cancan"
