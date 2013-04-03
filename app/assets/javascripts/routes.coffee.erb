@@ -1,13 +1,25 @@
 root = global ? window
 angular = root.angular
 
-thisApp = angular.module("SparePlanClient", ['ngCookies']).config(['$routeProvider', '$locationProvider' , 
+thisApp = angular.module("SparePlanClient", ['ngCookies', 'resources']).config(['$routeProvider', '$locationProvider' , 
 ($routeProvider, $locationProvider) ->
   #$locationProvider.hashPrefix('');
   $locationProvider.html5Mode true
   $routeProvider.when("/",
     controller: "WelcomeCtrl"
     templateUrl: "<%= asset_path('welcome/index.html') %>"
+  ).when("/resources", 
+    controller: ResourcesIndexCtrl
+    templateUrl: '<%= asset_path("resources/index.html") %>'
+  ).when("/resources/new",
+    controller: ResourcesCreateCtrl
+    templateUrl: '<%= asset_path("resources/new.html") %>'
+  ).when("/resources/:id",
+    controller: ResourcesShowCtrl
+    templateUrl: '<%= asset_path("resources/show.html") %>'
+  ).when("/resources/:id/edit",
+    controller: ResourcesEditCtrl
+    templateUrl: '<%= asset_path("resources/edit.html") %>'
   ).otherwise redirectTo: "/"
 ])
 

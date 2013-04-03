@@ -1,0 +1,20 @@
+<h1>Resource</h1>
+
+<p>
+  <b>Name</b><br>
+  {{resource.name}}
+</p>
+
+<div class="form-actions">
+  <a href="/resources/{{resource.id}}/edit"
+    class="btn btn-primary"><i class="icon-edit"></i>
+    Edit Resource
+  </a>
+  <button ng-click="destroy()" class="btn btn-danger">
+    <i class="icon-trash"></i> Delete
+  </button>
+  <a href="/resources" class="btn">
+    Back to resources
+  </a>
+</div>
+

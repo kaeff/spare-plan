@@ -27,7 +27,7 @@ group :assets do
   gem 'angularjs_scaffold'
 end
 
-group :test do
+group :test, :development do
   gem "rspec-rails"
   gem "factory_girl_rails"
 end
