@@ -21,6 +21,7 @@ group :assets do
   gem 'jquery-rails'
   gem "compass-rails"
   gem "haml-rails"
+  gem "haml_coffee_assets"
   gem "bootstrap-sass"
 
   gem 'angularjs-rails'

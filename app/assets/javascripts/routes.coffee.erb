@@ -7,19 +7,19 @@ thisApp = angular.module("SparePlanClient", ['ngCookies', 'resources']).config([
   $locationProvider.html5Mode true
   $routeProvider.when("/",
     controller: "WelcomeCtrl"
-    templateUrl: "<%= asset_path('welcome/index.html') %>"
+    template: JST['welcome/index']
   ).when("/resources", 
     controller: ResourcesIndexCtrl
-    templateUrl: '<%= asset_path("resources/index.html") %>'
+    template: JST["resources/index"]
   ).when("/resources/new",
     controller: ResourcesCreateCtrl
-    templateUrl: '<%= asset_path("resources/new.html") %>'
+    template: JST["resources/new"]
   ).when("/resources/:id",
     controller: ResourcesShowCtrl
-    templateUrl: '<%= asset_path("resources/show.html") %>'
+    template: JST["resources/show"]
   ).when("/resources/:id/edit",
     controller: ResourcesEditCtrl
-    templateUrl: '<%= asset_path("resources/edit.html") %>'
+    template: JST["resources/edit"]
   ).otherwise redirectTo: "/"
 ])
 

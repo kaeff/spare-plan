@@ -36,4 +36,6 @@ SparePlan::Application.configure do
   config.assets.debug = true
 
   config.sass.preferred_syntax = :sass
+
+  #config.assets.paths << "app/assets/templates"
 end
