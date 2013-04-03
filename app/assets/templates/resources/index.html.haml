@@ -1,0 +1,22 @@
+%h1 Resources
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Actions
+  %tbody
+    %tr{"ng-repeat" => "resource in resources"}
+      %td
+        %a{:href => "/resources/{{resource.id}}"}
+          {{resource.name}}
+      %td
+        %a.btn.btn-primary{:href => "/resources/{{resource.id}}/edit"}
+          %i.icon-edit
+          Edit
+        %button.btn.btn-danger{"ng-click" => "destroy()"}
+          %i.icon-trash
+          Delete
+%p
+  %a.btn.btn-primary{:href => "/resources/new"}
+    %i.icon-plus>
+    New

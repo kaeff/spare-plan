@@ -1,0 +1,19 @@
+%form{:name => "newResource"}
+  %fieldset
+    %legend
+      New Resource
+    .control-group
+      %label.control-label
+        Name
+      .controls
+        %input.text_field{:name => "resource[name]", "ng-model" => "resource.name", :required => "", :type => "text"}/
+        %span.help-inline{"ng-show" => "newResource.name.$error.required"}
+          Required
+    .form-actions
+      %button.btn.btn-success{"ng-click" => "save()", "ng-disabled" => "isClean() || newResource.$invalid"}
+        %i.icon-save
+        Save
+      %button.btn.btn-danger{"ng-click" => "destroy()", "ng-show" => "resource.id"}
+        %i.icon-trash
+        Delete
+      %a.btn{:href => "/resources"} Back to resources

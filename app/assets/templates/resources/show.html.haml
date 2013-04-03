@@ -1,0 +1,14 @@
+%h1 Resource
+%p
+  %b Name
+  %br/
+  {{resource.name}}
+.form-actions
+  %a.btn.btn-primary{:href => "/resources/{{resource.id}}/edit"}
+    %i.icon-edit
+    Edit Resource
+  %button.btn.btn-danger{"ng-click" => "destroy()"}
+    %i.icon-trash
+    Delete
+  %a.btn{:href => "/resources"}
+    Back to resources
