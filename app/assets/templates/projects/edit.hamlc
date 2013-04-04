@@ -1,0 +1,19 @@
+%form{:name => "editProject"}
+  %fieldset
+    %legend
+      Edit Project
+    .control-group
+      %label.control-label
+        Title
+      .controls
+        %input.text_field{:name => "project[title]", "ng-model" => "project.title", :required => "", :type => "text"}/
+        %span.help-inline{"ng-show" => "editProject.title.$error.required"}
+          Required
+    .form-actions
+      %button.btn.btn-success{"ng-click" => "save()", "ng-disabled" => "isClean() || editProject.$invalid"}
+        Save
+      %button.btn.btn-danger{"ng-click" => "destroy()", "ng-show" => "project.id"}
+        %i.icon-trash>
+        Delete
+      %a.btn{:href => "/projects"}
+        Back to projects

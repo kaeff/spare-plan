@@ -1,0 +1,14 @@
+%h1 Project
+%p
+  %b Title
+  %br/
+  {{project.title}}
+.form-actions
+  %a.btn.btn-primary{:href => "/projects/{{project.id}}/edit"}
+    %i.icon-edit
+    Edit Project
+  %button.btn.btn-danger{"ng-click" => "destroy()"}
+    %i.icon-trash
+    Delete
+  %a.btn{:href => "/projects"}
+    Back to projects

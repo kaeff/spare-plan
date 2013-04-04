@@ -1,0 +1,22 @@
+%h1 Projects
+%table.table.table-striped
+  %thead
+    %tr
+      %th Title
+      %th Actions
+  %tbody
+    %tr{"ng-repeat" => "project in projects"}
+      %td
+        %a{:href => "/projects/{{project.id}}"}
+          {{project.title}}
+      %td
+        %a.btn.btn-primary{:href => "/projects/{{project.id}}/edit"}
+          %i.icon-edit
+          Edit
+        %button.btn.btn-danger{"ng-click" => "destroy()"}
+          %i.icon-trash
+          Delete
+%p
+  %a.btn.btn-primary{:href => "/projects/new"}
+    %i.icon-plus>
+    New
