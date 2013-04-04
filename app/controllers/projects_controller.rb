@@ -41,7 +41,7 @@ respond_to :json
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(params[:resource])
+    @project = Project.new(params[:project])
 
     respond_to do |format|
       if @project.save
@@ -60,7 +60,7 @@ respond_to :json
     @project = Project.find(params[:id])
 
     respond_to do |format|
-      if @project.update_attributes(params[:resource])
+      if @project.update_attributes(params[:project])
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else

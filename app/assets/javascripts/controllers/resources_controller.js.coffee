@@ -11,12 +11,12 @@ ResourcesIndexCtrl = thisApp.controller "ResourcesIndexCtrl",  ($scope, Resource
         $scope.resources = _.without($scope.resources, original)
 ResourcesIndexCtrl.$inject = ['$scope', 'Resource']
 
-ResourcesCreateCtrl = thisApp.controller "ResourcesCreateCtrl", ($scope, $location, Resource) ->
+ResourcesNewCtrl = thisApp.controller "ResourcesNewCtrl", ($scope, $location, Resource) ->
   $scope.save = ->
     Resource.save $scope.resource, (resource) ->
       $location.path "/resources/#{resource.id}/edit"
 
-ResourcesCreateCtrl.$inject = ['$scope', '$location', 'Resource']
+ResourcesNewCtrl.$inject = ['$scope', '$location', 'Resource']
 
 ResourcesShowCtrl = thisApp.controller "ResourcesShowCtrl", ($scope, $location, $routeParams, Resource) ->
   Resource.get

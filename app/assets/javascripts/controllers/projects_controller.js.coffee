@@ -10,14 +10,14 @@ ProjectsIndexCtrl = ($scope, Project) ->
       @project.destroy ->
         $scope.projects = _.without($scope.projects, original)
         
-ProjectsIndexCtrl.$inject = ['$scope', 'Project'];
+ProjectsIndexCtrl.$inject = ['$scope', 'Project']
 
-ProjectsCreateCtrl = ($scope, $location, Project) ->
+ProjectsNewCtrl = ($scope, $location, Project) ->
   $scope.save = ->
     Project.save $scope.project, (project) ->
       $location.path "/projects/#{project.id}/edit"
 
-ProjectsCreateCtrl.$inject = ['$scope', '$location', 'Project'];
+ProjectsNewCtrl.$inject = ['$scope', '$location', 'Project']
 
 ProjectsShowCtrl = ($scope, $location, $routeParams, Project) ->
   Project.get
@@ -31,7 +31,7 @@ ProjectsShowCtrl = ($scope, $location, $routeParams, Project) ->
       $scope.project.destroy ->
         $location.path "/projects"
 
-ProjectsShowCtrl.$inject = ['$scope', '$location', '$routeParams', 'Project'];
+ProjectsShowCtrl.$inject = ['$scope', '$location', '$routeParams', 'Project']
 
 ProjectsEditCtrl = ($scope, $location, $routeParams, Project) ->
   Project.get
@@ -53,10 +53,10 @@ ProjectsEditCtrl = ($scope, $location, $routeParams, Project) ->
     Project.update $scope.project, (project) ->
       $location.path "/projects"
 
-ProjectsEditCtrl.$inject = ['$scope', '$location', '$routeParams', 'Project'];
+ProjectsEditCtrl.$inject = ['$scope', '$location', '$routeParams', 'Project']
 
 # exports
 root.ProjectsIndexCtrl  = ProjectsIndexCtrl
-root.ProjectsCreateCtrl = ProjectsCreateCtrl
+root.ProjectsNewCtrl = ProjectsNewCtrl
 root.ProjectsShowCtrl   = ProjectsShowCtrl
 root.ProjectsEditCtrl   = ProjectsEditCtrl 

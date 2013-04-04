@@ -25,4 +25,4 @@
 #= require_tree .
 #
 root = global ? window
-root.thisApp = angular.module("SparePlanClient", ['ngCookies', 'resources'])
+root.thisApp = angular.module("SparePlanClient", ['ngCookies', 'resources', 'projects'])

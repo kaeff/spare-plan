@@ -16,7 +16,7 @@
     %link{:href => "images/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/
     %link{:href => "images/apple-touch-icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}/
   %body
-    .navbar.navbar-fixed-top
+    .navbar
       .navbar-inner
         .container
           %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
@@ -36,10 +36,8 @@
             .well.sidebar-nav
               %h3 Sidebar
               %ul.nav.nav-list
-                %li.nav-header Sidebar
+                %li.nav-header Navigation
                 / sidebar menu models
-                %li= link_to "Link1", "/path1"
-                %li= link_to "Link2", "/path2"
-                %li= link_to "Link3", "/path3"
-      %footer
-        %p &copy; Company 2012
+                %li= link_to "Projects", "projects#index"
+                %li= link_to "Resources", "resources#index"
+                %li= link_to "Allocations", "allocations#index"
