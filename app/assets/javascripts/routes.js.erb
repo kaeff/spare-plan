@@ -1,0 +1,40 @@
+<%
+  # This file generates Angular routes from Rails routes to sync both components.
+
+  # See https://github.com/rails/rails/blob/3-2-stable/railties/lib/rails/tasks/routes.rake
+  # Attention: RouteInspector has benn moved to action_pack in Rails 4
+  # https://github.com/rails/rails/commit/ef91cddb48d1fa8d1a34e8e5ac68fe9eb56c160f
+
+  all_routes = Rails.application.routes.routes
+  require 'rails/application/route_inspector'
+  inspector = Rails::Application::RouteInspector.new
+
+  routes = inspector.collect_routes(all_routes).select { |r| r[:verb] == "GET" || r[:name] == "root" }
+%>
+(function() {
+  var angular, root, thisApp, routes;
+
+  root = typeof global !== "undefined" && global !== null ? global : window;
+
+  angular = root.angular;
+
+  thisApp = root.thisApp;
+
+  thisApp.config([
+    '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+      $locationProvider.html5Mode(true);
+
+      <% routes.each do |route|
+        controller, action = route[:reqs].split '#' %>
+      $routeProvider.when('<%=route[:path].gsub(/\([^)]*\)/, "")%>', {
+        controller: '<%= "#{controller.capitalize}#{action.capitalize}Ctrl" %>',
+        template: JST['<%= "#{controller}/#{action}" %>']
+      });
+
+      <% end %>
+
+      $routeProvider.otherwise({ redirectTo: "/" });
+    }
+  ]);
+
+}).call(this);
