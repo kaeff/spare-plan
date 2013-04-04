@@ -21,5 +21,17 @@ thisApp.config(['$routeProvider', '$locationProvider',
   ).when("/resources/:id/edit",
     controller: "ResourcesEditCtrl"
     template: JST["resources/edit"]
+  ).when("/projects", 
+    controller: ProjectsIndexCtrl
+    templateUrl: '<%= asset_path("projects/index.html") %>'
+  ).when("/projects/new",
+    controller: ProjectsCreateCtrl
+    templateUrl: '<%= asset_path("projects/new.html") %>'
+  ).when("/projects/:id",
+    controller: ProjectsShowCtrl
+    templateUrl: '<%= asset_path("projects/show.html") %>'
+  ).when("/projects/:id/edit",
+    controller: ProjectsEditCtrl
+    templateUrl: '<%= asset_path("projects/edit.html") %>'
   ).otherwise redirectTo: "/"
 ])

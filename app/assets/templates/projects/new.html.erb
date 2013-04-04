@@ -1,0 +1,36 @@
+<form name="newProject">
+  <fieldset>
+    <legend>
+      New Project
+    </legend>
+      <div class="control-group">
+        <label class="control-label">
+          Title
+        </label>
+        <div class="controls">
+            <input type="text"
+                   name="project[title]"
+                   ng-model="project.title"
+                   class="text_field"
+                   required>
+          <span ng-show="newProject.title.$error.required"
+                class="help-inline">
+            Required
+          </span>
+        </div>
+      </div>
+    <div class="form-actions">
+      <button class="btn btn-success" ng-click="save()"
+        ng-disabled="isClean() || newProject.$invalid">
+        <i class="icon-save"></i> Save
+      </button>
+      <button ng-click="destroy()"
+              ng-show="project.id"
+              class="btn btn-danger">
+              <i class="icon-trash"></i> Delete
+      </button>
+      <a href="/projects" class="btn">Back to projects</a>
+    </div>
+  </fieldset>
+</form>
+
