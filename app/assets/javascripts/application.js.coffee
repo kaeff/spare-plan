@@ -20,4 +20,8 @@
 #= require hamlcoffee
 #= require_tree ../templates
 #
+#= require_self
 #= require_tree .
+#
+root = global ? window
+root.thisApp = angular.module("SparePlanClient", ['ngCookies', 'resources'])

@@ -1,7 +1,8 @@
 root = global ? window
 angular = root.angular
+thisApp = root.thisApp
 
-thisApp = angular.module("SparePlanClient", ['ngCookies', 'resources']).config(['$routeProvider', '$locationProvider' , 
+thisApp.config(['$routeProvider', '$locationProvider',
 ($routeProvider, $locationProvider) ->
   #$locationProvider.hashPrefix('');
   $locationProvider.html5Mode true
@@ -9,19 +10,16 @@ thisApp = angular.module("SparePlanClient", ['ngCookies', 'resources']).config([
     controller: "WelcomeCtrl"
     template: JST['welcome/index']
   ).when("/resources", 
-    controller: ResourcesIndexCtrl
+    controller: "ResourcesIndexCtrl"
     template: JST["resources/index"]
   ).when("/resources/new",
-    controller: ResourcesCreateCtrl
+    controller: "ResourcesCreateCtrl"
     template: JST["resources/new"]
   ).when("/resources/:id",
-    controller: ResourcesShowCtrl
+    controller: "ResourcesShowCtrl"
     template: JST["resources/show"]
   ).when("/resources/:id/edit",
-    controller: ResourcesEditCtrl
+    controller: "ResourcesEditCtrl"
     template: JST["resources/edit"]
   ).otherwise redirectTo: "/"
 ])
-
-root.thisApp = thisApp
-

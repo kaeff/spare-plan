@@ -1,7 +1,7 @@
-
 root = global ? window
+thisApp = root.thisApp
 
-ResourcesIndexCtrl = ($scope, Resource) ->
+ResourcesIndexCtrl = thisApp.controller "ResourcesIndexCtrl",  ($scope, Resource) ->
   $scope.resources = Resource.query()
 
   $scope.destroy = ->
@@ -9,17 +9,16 @@ ResourcesIndexCtrl = ($scope, Resource) ->
       original = @resource
       @resource.destroy ->
         $scope.resources = _.without($scope.resources, original)
-        
-ResourcesIndexCtrl.$inject = ['$scope', 'Resource'];
+ResourcesIndexCtrl.$inject = ['$scope', 'Resource']
 
-ResourcesCreateCtrl = ($scope, $location, Resource) ->
+ResourcesCreateCtrl = thisApp.controller "ResourcesCreateCtrl", ($scope, $location, Resource) ->
   $scope.save = ->
     Resource.save $scope.resource, (resource) ->
       $location.path "/resources/#{resource.id}/edit"
 
-ResourcesCreateCtrl.$inject = ['$scope', '$location', 'Resource'];
+ResourcesCreateCtrl.$inject = ['$scope', '$location', 'Resource']
 
-ResourcesShowCtrl = ($scope, $location, $routeParams, Resource) ->
+ResourcesShowCtrl = thisApp.controller "ResourcesShowCtrl", ($scope, $location, $routeParams, Resource) ->
   Resource.get
     id: $routeParams.id
   , (resource) ->
@@ -31,9 +30,9 @@ ResourcesShowCtrl = ($scope, $location, $routeParams, Resource) ->
       $scope.resource.destroy ->
         $location.path "/resources"
 
-ResourcesShowCtrl.$inject = ['$scope', '$location', '$routeParams', 'Resource'];
+ResourcesShowCtrl.$inject = ['$scope', '$location', '$routeParams', 'Resource']
 
-ResourcesEditCtrl = ($scope, $location, $routeParams, Resource) ->
+ResourcesEditCtrl = thisApp.controller "ResourcesEditCtrl", ($scope, $location, $routeParams, Resource) ->
   Resource.get
     id: $routeParams.id
   , (resource) ->
@@ -53,10 +52,4 @@ ResourcesEditCtrl = ($scope, $location, $routeParams, Resource) ->
     Resource.update $scope.resource, (resource) ->
       $location.path "/resources"
 
-ResourcesEditCtrl.$inject = ['$scope', '$location', '$routeParams', 'Resource'];
-
-# exports
-root.ResourcesIndexCtrl  = ResourcesIndexCtrl
-root.ResourcesCreateCtrl = ResourcesCreateCtrl
-root.ResourcesShowCtrl   = ResourcesShowCtrl
-root.ResourcesEditCtrl   = ResourcesEditCtrl 
+ResourcesEditCtrl.$inject = ['$scope', '$location', '$routeParams', 'Resource']
