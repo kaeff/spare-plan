@@ -1,2 +1,3 @@
-class TasksController < ApplicationController
+class TasksController < InheritedResources::Base
+  respond_to :json
 end

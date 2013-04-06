@@ -34,6 +34,7 @@ group :test, :development do
   gem "factory_girl_rails"
 end
 
+gem "inherited_resources"
 gem "cancan"
 gem "devise"
 gem "simple_form"
