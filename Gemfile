@@ -29,6 +29,10 @@ group :assets do
   gem 'angularjs_scaffold'
 end
 
+group :development do
+  gem 'coffee-rails-source-maps'
+end
+
 group :test, :development do
   gem "rspec-rails"
   gem "factory_girl_rails"
