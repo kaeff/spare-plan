@@ -29,6 +29,7 @@ end
 group :development do
   gem 'angularjs_scaffold'
   gem 'coffee-rails-source-maps'
+  gem 'ruby-bower', git: 'git@github.com:kaeff/ruby-bower.git'
 end
 
 group :test, :development do
@@ -41,3 +42,6 @@ gem "cancan"
 gem "devise"
 gem "simple_form"
 gem "country_select"
+
+# TODO Is there really a bug in ExecJS?
+gem "execjs", git: 'git@github.com:kaeff/execjs.git', branch: 'json_api_error'

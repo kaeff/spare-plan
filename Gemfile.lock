@@ -1,3 +1,18 @@
+GIT
+  remote: git@github.com:kaeff/execjs.git
+  revision: cfba796457ea9c41535500d43d8ad4b02020df14
+  branch: json_api_error
+  specs:
+    execjs (1.4.0)
+      multi_json (~> 1.0)
+
+GIT
+  remote: git@github.com:kaeff/ruby-bower.git
+  revision: 6b3b52a258f31d9c5f3bf3c87bbebf1e637a427c
+  specs:
+    ruby-bower (0.0.1)
+      execjs
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -60,8 +75,6 @@ GEM
       warden (~> 1.2.1)
     diff-lcs (1.2.2)
     erubis (2.7.0)
-    execjs (1.4.0)
-      multi_json (~> 1.0)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.2.1)
@@ -178,6 +191,7 @@ DEPENDENCIES
   compass-rails
   country_select
   devise
+  execjs!
   factory_girl_rails
   haml-rails
   haml_coffee_assets
@@ -185,6 +199,7 @@ DEPENDENCIES
   jquery-rails
   rails (= 3.2.13)
   rspec-rails
+  ruby-bower!
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3
