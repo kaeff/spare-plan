@@ -10,13 +10,12 @@
 # WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 # GO AFTER THE REQUIRES BELOW.
 #
-#= require jquery
-#= require jquery_ujs
-#= require underscore
 #
-#= require angular
-#= require angular-cookies
-#= require angular-resource
+#= require jquery/jquery
+#= require angular/angular
+#= require angular-cookies/angular-cookies
+#= require angular-resource/angular-resource
+#= require underscore/underscore
 #
 #= require hamlcoffee
 #= require_tree ../templates

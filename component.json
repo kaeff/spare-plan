@@ -1,0 +1,12 @@
+{
+  "name": "spare-plan",
+  "version": "0.0.1",
+  "main": "app/assets/javascripts/application.js",
+  "dependencies": {
+    "jquery": "latest",
+    "underscore": "~1.4.4",
+    "angular": "latest",
+    "angular-cookies": "~1.0.6",
+    "angular-resource": "~1.0.6"
+  }
+}

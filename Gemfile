@@ -19,17 +19,15 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-rails'
-  gem 'underscore-rails'
   gem "compass-rails"
   gem "haml-rails"
   gem "haml_coffee_assets"
   gem "bootstrap-sass"
 
-  gem 'angularjs-rails'
-  gem 'angularjs_scaffold'
 end
 
 group :development do
+  gem 'angularjs_scaffold'
   gem 'coffee-rails-source-maps'
 end
 
