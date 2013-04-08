@@ -1,7 +1,0 @@
-<%
-  dependencies = Bower.new.list(sources: true)[".js"]
-  dependencies.each do |file|
-%>
-//= require <%= file.gsub('vendor/assets/components/', '').gsub('.js', '') %>
-<% end %>
-
