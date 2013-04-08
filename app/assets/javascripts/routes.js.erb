@@ -5,6 +5,9 @@
   # Attention: RouteInspector has benn moved to action_pack in Rails 4
   # https://github.com/rails/rails/commit/ef91cddb48d1fa8d1a34e8e5ac68fe9eb56c160f
 
+  # Require hamlcoffee for templates
+  require_asset "hamlcoffee"
+
   all_routes = Rails.application.routes.routes
   require 'rails/application/route_inspector'
   inspector = Rails::Application::RouteInspector.new
@@ -28,10 +31,10 @@
         controller, action = route[:reqs].split '#' %>
       $routeProvider.when('<%=route[:path].gsub(/\([^)]*\)/, "")%>', {
         controller: '<%= "#{controller.capitalize}#{action.capitalize}Ctrl" %>',
-        template: JST['<%= "#{controller}/#{action}" %>']
+        template: JST['<%= "#{controller}/#{action}" %>']()
       });
 
-      <% end %>
+    <% end %>
 
       $routeProvider.otherwise({ redirectTo: "/" });
     }
