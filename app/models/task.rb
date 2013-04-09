@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  attr_accessible :title, :duration
+  attr_accessible :title, :duration, :project, :resource
 
   belongs_to :project
   belongs_to :resource
@@ -7,4 +7,7 @@ class Task < ActiveRecord::Base
   has_many :predecessor_dependencies, class_name: "TaskDependency", foreign_key: :successor_id
   has_many :successors, through: :successor_dependencies
   has_many :successor_dependencies, class_name: "TaskDependency", foreign_key: :predecessor_id
+
+  validate :project, presence: true
+  validate :title, presence: true
 end
