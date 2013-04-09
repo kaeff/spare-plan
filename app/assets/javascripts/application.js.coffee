@@ -1,11 +1,13 @@
 #
-## External dependencies
+## External dependencies - (Should be) provided by package manager
 #
 #= require vendor
 #
-## Internal dependencies
+## Internal dependencies - (Should be) provided by module loader
 #
 #= require_tree ./resources
+#= require_tree ./directives
+# (Templates need to go last)
 #= require_tree ../templates
 #
 ## Initialization
@@ -15,4 +17,4 @@
 #= require routes
 
 root = global ? window
-root.thisApp = angular.module("SparePlanClient", ['ngCookies', 'resources'])
+root.thisApp = angular.module("SparePlanClient", ['ngCookies', 'resources', 'directives'])
