@@ -11,12 +11,11 @@
     %tr{"ng-repeat" => "task in tasks"}
       %td{"ng-bind": "task.id"}
       %td
-        %input{type: "text", "ng-model": "task.title"}
+        %input{type: "text", "ng-model": "task.title", "sp-model-edited": "save(task)"}
       %td{"ng-bind": "task.duration"}
       %td
       %td
       %td
-        %button.btn.btn-primary{"ng-click": "save(task)"} Save
         %button.btn.btn-danger{"ng-click": "delete(task)"} Delete
 %p
   %a.btn.btn-primary{"ng-click": "add()"}
