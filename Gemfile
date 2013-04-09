@@ -28,7 +28,7 @@ end
 
 group :development do
   gem 'angularjs_scaffold'
-  gem 'coffee-rails-source-maps'
+  #gem 'coffee-rails-source-maps'
   gem 'ruby-bower', git: 'git@github.com:kaeff/ruby-bower.git'
 end
 
