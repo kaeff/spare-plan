@@ -54,10 +54,13 @@ Architectural properties the app seeks to demonstrate
   * URL helper (into controller/resources via DI)
 * Master / Detail
   * Nested resources / views / scopes
-* Authentication (check existing angular plugins)
+  * angular-ui/ui-router
+* Module resolution?
+* Offline / Caching?
+* Authentication (check existing angular plugins)?
 * Forms? / Validation
-* Offline? / Caching
-* Module resolution
+* Components?
+  * -> ui-bootstrap
 * Server-side rendering?
 
 ## Done
@@ -69,3 +72,10 @@ Architectural properties the app seeks to demonstrate
   * External dependency resolution
   * Inclusion / Pipelining
 * Dirty Tracking / Binding
+
+## Framework extraction candidates
+
+* bower-rails
+  * bower directive
+* Angular integration
+  * routes
