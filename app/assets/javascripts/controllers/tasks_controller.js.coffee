@@ -14,7 +14,17 @@ TasksIndexCtrl = thisApp.controller "TasksIndexCtrl", ($scope, Task) ->
     $scope.tasks.push new Task()
 
   $scope.save= (task) ->
-    if task.id? then task.$update() else task.$save()
+    if task.id? then task.$update($scope.afterSave) else task.$save($scope.afterSave)
+
+  $scope.afterSave = (task) ->
+    Task.query (newTasks) ->
+      _.each newTasks, (newTask) ->
+        oldTask = _.find($scope.tasks, (t) -> t.id == newTask.id )
+        if oldTask
+          _.extend oldTask, _.pick(newTask, "early_start", "early_end", "late_start", "late_end", "free_buffer", "total_buffer", "on_critical_path?")
+        else
+          $scope.tasks.push newTask
+
 
   $scope.delete = (task) ->
     $scope.tasks = _.without($scope.tasks, task)
