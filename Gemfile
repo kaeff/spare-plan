@@ -30,11 +30,16 @@ group :development do
   gem 'angularjs_scaffold'
   #gem 'coffee-rails-source-maps'
   gem 'ruby-bower', git: 'git@github.com:kaeff/ruby-bower.git'
+  gem 'yaml_db'
 end
 
 group :test, :development do
   gem "rspec-rails"
   gem "factory_girl_rails"
+  gem "guard"
+  gem "guard-rspec"
+  gem "spork"
+  gem 'rb-inotify', '~> 0.9', group: :linux
 end
 
 gem "inherited_resources"

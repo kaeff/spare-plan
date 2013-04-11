@@ -6,17 +6,33 @@
       %th Title
       %th Duration
       %th Predecessors
-      %th Successors
+      %th Early Start
+      %th Early End
+      %th Late Start
+      %th Late End
+      %th Free Buffer
+      %th Total Buffer
+      %th
   %tbody
-    %tr{"ng-repeat" => "task in tasks"}
+    -#%tr{"ng-repeat" => "task in tasks", "ng-class": "warning"}
+    %tr{"ng-repeat": "task in tasks", "ng-class": "{warning: task['on_critical_path?']}"}
       %td{"ng-bind": "task.id"}
       %td
         %input{type: "text", "ng-model": "task.title", "sp-model-edited": "save(task)"}
-      %td{"ng-bind": "task.duration"}
       %td
+        %input{type: "text", "ng-model": "task.duration", "sp-model-edited": "save(task)"}
+      %td{"ng-bind": "task.predecessor_ids"}
+      %td{"ng-bind": "task.early_start"}
+      %td{"ng-bind": "task.early_end"}
+      %td{"ng-bind": "task.late_start"}
+      %td{"ng-bind": "task.late_end"}
+      %td{"ng-bind": "task.free_buffer"}
+      %td{"ng-bind": "task.total_buffer"}
       %td
-      %td
-        %button.btn.btn-danger{"ng-click": "delete(task)"} Delete
+        %button.btn.btn-danger{"ng-click": "delete(task)"}
+          %i.icon-trash
+          Delete
+%p.text-warning Yellow = Task is on critical path
 %p
   %a.btn.btn-primary{"ng-click": "add()"}
     %i.icon-plus>

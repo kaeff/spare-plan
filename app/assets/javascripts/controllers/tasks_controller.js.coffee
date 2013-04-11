@@ -17,6 +17,5 @@ TasksIndexCtrl = thisApp.controller "TasksIndexCtrl", ($scope, Task) ->
     if task.id? then task.$update() else task.$save()
 
   $scope.delete = (task) ->
-    $scope.tasks.splice $scope.tasks.indexOf(task), 1
+    $scope.tasks = _.without($scope.tasks, task)
     task.$remove()
-
