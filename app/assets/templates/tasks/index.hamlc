@@ -15,20 +15,20 @@
       %th
   %tbody
     %tr{"ng-repeat": "task in tasks", "ng-class": "{warning: task['on_critical_path?']}"}
-      %td{"ng-bind": "task.id"}
+      %td.narrow-column{"ng-bind": "task.id"}
       %td
-        %input{type: "text", "ng-model": "task.title", "sp-model-edited": "save(task)"}
+        %input.wide{type: "text", "ng-model": "task.title", "sp-model-edited": "save(task)"}
       %td
-        %input.duration-edit{type: "text", "ng-model": "task.duration", "sp-model-edited": "save(task)"}
+        %input.regular-width{type: "text", "ng-model": "task.duration", "sp-model-edited": "save(task)"}
       %td
-        %input.predecessor-edit{type: "text", "ng-model": "task.predecessor_ids", "ng-list": true, "sp-model-edited": "save(task)"}
+        %input.regular-width{type: "text", "ng-model": "task.predecessor_ids", "ng-list": true, "sp-model-edited": "save(task)"}
       %td{"ng-bind": "task.early_start"}
       %td{"ng-bind": "task.late_start"}
       %td{"ng-bind": "task.early_end"}
       %td{"ng-bind": "task.late_end"}
       %td{"ng-bind": "task.free_buffer"}
       %td{"ng-bind": "task.total_buffer"}
-      %td
+      %td.regular-width
         %button.btn.btn-danger{"ng-click": "delete(task)"}
           %i.icon-trash
           Delete
