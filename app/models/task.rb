@@ -21,36 +21,42 @@ class Task < ActiveRecord::Base
   end
 
   def early_start
-    latest_predecessor = self.predecessors.sort_by(&:early_end).last
-    latest_predecessor ? latest_predecessor.early_end : 0
+    @early_start ||= begin
+      latest_predecessor = self.predecessors.sort_by(&:early_end).last
+      latest_predecessor ? latest_predecessor.early_end : 0
+    end
   end
 
   def early_end
-    self.early_start + self.duration
+    @early_end ||= self.early_start + self.duration
   end
 
   def late_start
-    self.late_end - self.duration
+    @late_start ||= self.late_end - self.duration
   end
 
   def late_end
-    return self.early_end if self.successors.empty?
-    earliest_successor = self.successors.sort_by(&:late_start).first
-    earliest_successor.late_start
+    @late_end ||= begin
+      return self.early_end if self.successors.empty?
+      earliest_successor = self.successors.sort_by(&:late_start).first
+      earliest_successor.late_start
+    end
   end
 
   def free_buffer
-    return 0 if self.successors.empty?
-    earliest_successor = self.successors.sort_by(&:early_start).first
-    earliest_successor.early_start - self.early_end
+    @free_buffer ||= begin
+      return 0 if self.successors.empty?
+      earliest_successor = self.successors.sort_by(&:early_start).first
+      earliest_successor.early_start - self.early_end
+    end
   end
 
   def total_buffer
-    self.late_start - self.early_start
+    @total_buffer ||= self.late_start - self.early_start
   end
 
   def on_critical_path?
-    self.free_buffer == 0 && self.total_buffer == 0
+    @on_critical_path ||= self.free_buffer == 0 && self.total_buffer == 0
   end
 
   def as_json(*args)
