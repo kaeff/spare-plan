@@ -9,6 +9,9 @@ class Task < ActiveRecord::Base
   has_many :successors, through: :successor_dependencies
   has_many :successor_dependencies, class_name: "TaskDependency", foreign_key: :predecessor_id
 
+  accepts_nested_attributes_for :predecessors
+  attr_accessible :predecessor_ids
+
   validate :project, presence: true
   validate :title, presence: true
 

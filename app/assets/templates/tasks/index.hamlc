@@ -1,5 +1,5 @@
 %h1 Tasks
-%table.table.table-striped
+%table.table.table-striped#tasks-list
   %thead
     %tr
       %th ID
@@ -7,24 +7,24 @@
       %th Duration
       %th Predecessors
       %th Early Start
-      %th Early End
       %th Late Start
+      %th Early End
       %th Late End
       %th Free Buffer
       %th Total Buffer
       %th
   %tbody
-    -#%tr{"ng-repeat" => "task in tasks", "ng-class": "warning"}
     %tr{"ng-repeat": "task in tasks", "ng-class": "{warning: task['on_critical_path?']}"}
       %td{"ng-bind": "task.id"}
       %td
         %input{type: "text", "ng-model": "task.title", "sp-model-edited": "save(task)"}
       %td
-        %input{type: "text", "ng-model": "task.duration", "sp-model-edited": "save(task)"}
-      %td{"ng-bind": "task.predecessor_ids"}
+        %input.duration-edit{type: "text", "ng-model": "task.duration", "sp-model-edited": "save(task)"}
+      %td
+        %input.predecessor-edit{type: "text", "ng-model": "task.predecessor_ids", "ng-list": true, "sp-model-edited": "save(task)"}
       %td{"ng-bind": "task.early_start"}
-      %td{"ng-bind": "task.early_end"}
       %td{"ng-bind": "task.late_start"}
+      %td{"ng-bind": "task.early_end"}
       %td{"ng-bind": "task.late_end"}
       %td{"ng-bind": "task.free_buffer"}
       %td{"ng-bind": "task.total_buffer"}
