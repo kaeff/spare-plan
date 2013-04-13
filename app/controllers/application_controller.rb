@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   # TODO For server-side rendering, respond with ready-to initialize rendered interpretation
   def init_spa
     if request.format == "text/html"
-      render action: "angular"
+      render action: "angular", layout: "application"
     end
   end
  end

@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "main": "app/assets/javascripts/application.js",
   "dependencies": {
-    "jquery": "latest",
     "underscore": "~1.4.4",
     "angular": "~1.0.6",
     "angular-cookies": "~1.0.6",

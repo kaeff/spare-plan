@@ -1,7 +1,7 @@
 root = global ? window
 thisApp = root.thisApp
 
-TasksIndexCtrl = thisApp.controller "TasksIndexCtrl", ($scope, Task) ->
+TasksIndexCtrl = thisApp.controller "TasksIndexCtrl", ['$scope', 'Task', ($scope, Task) ->
   $scope.tasks = Task.query()
 
   $scope.destroy = ->
@@ -29,3 +29,4 @@ TasksIndexCtrl = thisApp.controller "TasksIndexCtrl", ($scope, Task) ->
   $scope.delete = (task) ->
     $scope.tasks = _.without($scope.tasks, task)
     task.$remove()
+]
