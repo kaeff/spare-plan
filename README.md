@@ -57,9 +57,14 @@ Build is written to `public/assets`. Don't forget to delete this directory again
 ## Stories
 
 * Projekte anlegen und verwalten
-* Resourcen anlegen und Verwalten
-* Resource einem Projekt zuordnen
 * Tasks einem Projekt hinzufügen
+* Tasks in Abhängigkeit (Vorgänger/Nachfolger) setzen
+* Projektverlauf steuern
+  * Kritischen Pfad anzeigen
+  * Endzeitpunkt errechnen (Early/Late)
+  * Pufferzeiten anzeigen
+* (Resourcen anlegen und Verwalten)
+* (Resource einem Task zuordnen)
 
 ## Technical Stories
 
@@ -67,12 +72,10 @@ Architectural properties the app seeks to demonstrate
 
 ### Todo
 
-* Code sharing
-  * URL helper (into controller/resources via DI)
 * Master / Detail
-  * Nested resources / views / scopes
-  * angular-ui/ui-router
+  * angular-ui/ui-router?
 * Module resolution?
+  * "DSL" im Template context die gleichzeitig den pfad in sprockets registriert
 * Offline / Caching?
 * Authentication (check existing angular plugins)?
 * Forms? / Validation
@@ -83,16 +86,17 @@ Architectural properties the app seeks to demonstrate
 ## Done
 
 * Code sharing
-  * Controller, Routes
-  * Scaffolding: Resources, with errors
+  * Generation: Routes, Resources
+  * Scaffolding: Controller, with errors
 * Packging
   * External dependency resolution
   * Inclusion / Pipelining
 * Dirty Tracking / Binding
+* Nested resources
 
 ## Framework extraction candidates
 
 * bower-rails
   * bower directive
 * Angular integration
-  * routes
+  * Code generation
