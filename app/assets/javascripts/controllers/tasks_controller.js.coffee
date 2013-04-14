@@ -1,8 +1,8 @@
 root = global ? window
 thisApp = root.thisApp
 
-TasksIndexCtrl = thisApp.controller "TasksIndexCtrl", ['$scope', 'Task', ($scope, Task) ->
-  $scope.tasks = Task.query()
+TasksIndexCtrl = thisApp.controller "TasksIndexCtrl", ['$scope', '$routeParams', 'Task', ($scope, $routeParams, Task) ->
+  $scope.tasks = Task.query $routeParams
 
   $scope.destroy = ->
     if confirm("Are you sure?")

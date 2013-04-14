@@ -1,7 +1,7 @@
 root = global ? window
 
 angular.module("spareplan.resources.task", []).factory "Task", ['$resource', ($resource) ->
-  task = $resource("/tasks/:id",
+  task = $resource("/projects/:project_id/tasks/:id",
     id: "@id"
   ,
     update:
