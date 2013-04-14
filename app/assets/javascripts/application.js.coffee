@@ -17,4 +17,5 @@
 #= require routes
 
 root = global ? window
-root.thisApp = angular.module("SparePlanClient", ['ngCookies', 'resources', 'directives'])
+angular.module 'spareplan.resources', ['ngResource', 'spareplan.resources.project', 'spareplan.resources.task', 'spareplan.resources.project']
+root.thisApp = angular.module("SparePlanClient", ['ngCookies', 'spareplan.resources', 'directives'])

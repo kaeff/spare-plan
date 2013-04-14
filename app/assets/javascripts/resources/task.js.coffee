@@ -1,6 +1,6 @@
 root = global ? window
 
-angular.module("resources", ["ngResource"]).factory "Task", ['$resource', ($resource) ->
+angular.module("spareplan.resources.task", []).factory "Task", ['$resource', ($resource) ->
   task = $resource("/tasks/:id",
     id: "@id"
   ,
