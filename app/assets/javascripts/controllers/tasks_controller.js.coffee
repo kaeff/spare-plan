@@ -14,10 +14,10 @@ TasksIndexCtrl = thisApp.controller "TasksIndexCtrl", ['$scope', '$routeParams',
     $scope.tasks.push new Task()
 
   $scope.save= (task) ->
-    if task.id? then task.$update($scope.afterSave) else task.$save($scope.afterSave)
+    if task.id? then task.$update($routeParams, $scope.afterSave) else task.$save($routeParams, $scope.afterSave)
 
   $scope.afterSave = (task) ->
-    Task.query (newTasks) ->
+    Task.query $routeParams, (newTasks) ->
       _.each newTasks, (newTask) ->
         oldTask = _.find($scope.tasks, (t) -> t.id == newTask.id )
         if oldTask
@@ -28,5 +28,5 @@ TasksIndexCtrl = thisApp.controller "TasksIndexCtrl", ['$scope', '$routeParams',
 
   $scope.delete = (task) ->
     $scope.tasks = _.without($scope.tasks, task)
-    task.$remove()
+    task.$remove(angular.extend($routeParams, { id: task.id}))
 ]

@@ -1,0 +1,38 @@
+<% environment.context_class.instance_eval { include CodegenHelper } %>
+(function() {
+  var root;
+
+  root = typeof global !== "undefined" && global !== null ? global : window;
+
+  root.angular = angular;
+  
+  <%
+  dependent_modules = ['ngResource']
+  ng_resources.each do |model_name, route|
+  module_name = "#{root_module_name}.resources.#{model_name.downcase}"
+    dependent_modules << module_name
+  %>
+  root.angular.module("<%= module_name %>", []).factory("<%= model_name %>", ['$resource', function($resource) {
+    var Resource;
+
+    Resource = $resource("<%= route[:path] %>", {
+      id: "@id",
+    }, {
+      update: {
+        method: "PUT"
+      },
+      destroy: {
+        method: "DELETE"
+      }
+    });
+    Resource.prototype.destroy = function(cb) {
+      return Resource.remove({
+        id: this.id
+      }, cb);
+    };
+    return Resource;
+
+  }]);
+  <% end %>
+  angular.module('<%= root_module_name %>.resources', <%= dependent_modules %>);
+}).call(this);
