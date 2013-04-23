@@ -47,6 +47,7 @@ gem "cancan"
 gem "devise"
 gem "simple_form"
 gem "country_select"
+gem "active_model_serializers"
 
 # TODO Is there really a bug in ExecJS?
 gem "execjs", git: 'git@github.com:kaeff/execjs.git', branch: 'json_api_error'

@@ -24,4 +24,10 @@ class ApplicationController < ActionController::Base
       render action: "angular", layout: "application"
     end
   end
+
+  def default_serializer_options
+    {
+      root: false
+    }
+  end
  end

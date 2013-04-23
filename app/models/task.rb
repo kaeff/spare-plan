@@ -15,7 +15,6 @@ class Task < ActiveRecord::Base
   validate :project, presence: true
   validate :title, presence: true
 
-
   def duration
     self.attributes["duration"] || 0
   end
@@ -57,19 +56,5 @@ class Task < ActiveRecord::Base
 
   def on_critical_path?
     @on_critical_path ||= self.free_buffer == 0 && self.total_buffer == 0
-  end
-
-  def as_json(*args)
-    super methods: [
-      :early_start,
-      :early_end,
-      :late_start,
-      :late_end,
-      :free_buffer,
-      :total_buffer,
-      :on_critical_path?,
-      :predecessor_ids,
-      :successor_ids
-    ]
   end
 end
