@@ -1,6 +1,6 @@
 SparePlan::Application.routes.draw do
   resources :projects do
-    resources :tasks
+    resources :tasks, except: [:show, :edit]
   end
   resources :resources
 

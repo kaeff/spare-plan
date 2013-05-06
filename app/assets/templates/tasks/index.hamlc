@@ -14,7 +14,7 @@
       %th Total Buffer
       %th
   %tbody
-    %tr{"ng-repeat": "task in tasks", "ng-class": "{warning: task['on_critical_path?']}"}
+    %tr{"ng-repeat": "task in tasks", "ng-class": "{warning: task['on_critical_path']}"}
       %td.narrow-column{"ng-bind": "task.id"}
       %td
         %input.wide{type: "text", "ng-model": "task.title", "sp-model-edited": "save(task)"}
@@ -36,4 +36,4 @@
 %p
   %a.btn.btn-primary{"ng-click": "add()"}
     %i.icon-plus>
-    New
+    New Task

@@ -27,7 +27,7 @@
       <% routeprovider_routes.each do |route| %>
       $routeProvider.when('<%=route[:path]%>', {
         controller: '<%= "#{route[:controller].capitalize}#{route[:action].capitalize}Ctrl" %>',
-        template: JST['<%= "#{route[:controller]}/#{route[:action]}" %>']()
+        template: JST['<%= "#{route[:controller].downcase}/#{route[:action]}" %>']()
       });
 
     <% end %>
