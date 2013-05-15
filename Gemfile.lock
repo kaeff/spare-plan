@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:kaeff/execjs.git
+  remote: https://github.com/kaeff/execjs.git
   revision: cfba796457ea9c41535500d43d8ad4b02020df14
   branch: json_api_error
   specs:
@@ -7,7 +7,7 @@ GIT
       multi_json (~> 1.0)
 
 GIT
-  remote: git@github.com:kaeff/ruby-bower.git
+  remote: https://github.com/kaeff/ruby-bower.git
   revision: 6b3b52a258f31d9c5f3bf3c87bbebf1e637a427c
   specs:
     ruby-bower (0.0.1)
